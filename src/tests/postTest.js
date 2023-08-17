@@ -1,7 +1,8 @@
 const sequelize = require('../utils/connection');
+
 require('../models')
 
-const testMigrate = async () => {
+const postTest = async () => {
 
     try {
         await sequelize.sync({ force: true })
@@ -12,4 +13,4 @@ const testMigrate = async () => {
     }
 }
 
-testMigrate()
+postTest()
