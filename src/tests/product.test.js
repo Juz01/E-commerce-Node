@@ -64,7 +64,7 @@ test("GET -> 'URL_BASE', should return status code 200 and res.body.legnth = 1",
 
 })
 
-test("GET ONE -> 'URL_BASE?category=id', should return status code 200 and res.body.length = 1, res.body[0].category to be defined and res.body[0].category = category.id", async () => {
+test("GET ONE -> 'URL_BASE?category=id', should return status code 200 and res.body.length === 1, res.body[0].category to be defined and res.body[0].category = category.id", async () => {
 
   const res = await request(app)
     .get(`${URL_BASE}?category=${productId}`)

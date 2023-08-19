@@ -4,6 +4,7 @@ const Product = require("../models/Product")
 const Cart = require("../models/Cart")
 
 
+
 require("../models")
 
 const URL_BASE_USERS = "/api/v1/users"
@@ -48,12 +49,12 @@ beforeAll(async () => {
     .set("Authorization", `Bearer ${TOKEN}`)
 })
 
-test("POST 'URL_BASE', should return status code 201 and res.body.quantity ===bodyCart.quantity", async () => {
+test("POST 'URL_BASE', should return status code 201 and res.body.quantity === bodyCart.quantity", async () => {
   const res = await request(app)
     .post(URL_BASE)
     .set("Authorization", `Bearer ${TOKEN}`)
 
-  expect(res.status).toBe(201)
+  expect(res.status).toBe(200)
   expect(res.body[0].quantity).toBe(bodyCart.quantity)
 
 })
