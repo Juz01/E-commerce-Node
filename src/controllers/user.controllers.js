@@ -32,22 +32,7 @@ const update = catchError(async(req, res) => {
     return res.json(result[1][0]);
 });
 
-const verifyUser = catchError(async (req, res) => {
-    const { code } = req.params;
-    const emailCode = await emailCode.findOnce({ where: {code} })
-    if(!emailCode) return res.sendStatus(403)
 
-    const user = await User.update(
-        { isVerified: true },
-        { where: { id: emailCode.userId }, returning: true }
-    )
-
-    if(user[0] === 0) return res.sendStatus(404);
-
-    await emailCode.destroy()
-
-    return res.json(user[1][0])
-})
 
 const login = catchError(async(req, res) => {
     const { email, password } = req.body
@@ -74,6 +59,5 @@ module.exports = {
     create,
     remove,
     update,
-    login,
-    verifyUser
+    login
 }

@@ -10,7 +10,7 @@ const userCreate = async () => {
         }
     
 
-     await User.create(userBody)
+    await User.create(userBody)
 }
 
 module.exports = userCreate

@@ -30,7 +30,7 @@ test("GET -> 'URL_BASE', should return status code 200 and res.body.length === 1
 
 })
 
-test("POST -> 'URL_BASE', should return status code 201 and res.body.firstName === user.firstName",async () => {
+test("POST -> 'URL_BASE', should return status code 201, and res.body.firstName === user.firstName",async () => {
     const user = {
         firstName: "Jorge",
         lastName: "Uceta",
@@ -45,9 +45,9 @@ test("POST -> 'URL_BASE', should return status code 201 and res.body.firstName =
 
     userId = res.body.id
     
-    expect(res.status).toBe(201)
-    expect(res.body).toBeDefined()
-    expect(res.body.firstName).toBe(user.firstName)
+    expect(res.status).toBe(201);
+    expect(res.body).toBeDefined();
+    expect(res.body.firstName).toBe(user.firstName);
 })
 
 test("PUT -> 'URL_BASE/:id', should return status code 200 and res.body.firstName === user.firstName",async () => {
@@ -73,7 +73,7 @@ test("POST -> 'URL_BASE/login', should return status code 200, res.body.email ==
     }
 
     const res = await request(app)
-        .get(`${URL_BASE}/login`)
+        .post(`${URL_BASE}/login`)
         .send(user)
 
     expect(res.status).tobe(200)
@@ -91,7 +91,7 @@ test("POST -> 'URL_BASE/login', should return status code 401",async () => {
     }
 
     const res = await request(app)
-        .get(`${URL_BASE}/login`)
+        .post(`${URL_BASE}/login`)
         .send(user)
 
     expect(res.status).tobe(401)

@@ -4,7 +4,6 @@ const verifyJwt = require('../utils/verifyJWT');
 
 
 
-
 const routerCategory = express.Router();
 
 routerCategory.route('/')
