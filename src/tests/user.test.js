@@ -35,7 +35,7 @@ test("POST -> 'URL_BASE', should return status code 201, and res.body.firstName 
     const user = {
         firstName: "Jorge",
         lastName: "Uceta",
-        email: "jorge@gmail.com",
+        email: "jorgee@gmail.com",
         password: "J123456789",
         phone: "532147"        
     }
@@ -44,7 +44,7 @@ test("POST -> 'URL_BASE', should return status code 201, and res.body.firstName 
     .post(URL_BASE)
     .send(user)
 
-    userId = res.body.id
+      userId = res.body.id
     
     expect(res.status).toBe(201);
     expect(res.body).toBeDefined();
@@ -69,7 +69,7 @@ test("PUT -> 'URL_BASE/:id', should return status code 200 and res.body.firstNam
 
 test("POST -> 'URL_BASE/login', should return status code 200, res.body.email === user.email, and res.body.token to be defined",async () => {
     const user = {
-        email: "jorge@gmail.com",
+        email: "jorgee@gmail.com",
         password: "J123456789"
     }
 
@@ -77,10 +77,10 @@ test("POST -> 'URL_BASE/login', should return status code 200, res.body.email ==
         .post(`${URL_BASE}/login`)
         .send(user)
 
-    expect(res.status).tobe(200)
+    expect(res.status).toBe(200)
     expect(res.body).toBeDefined()
-    expect(res.body.user.email).tobe(user.email)
-    expect(res.body.toke).toBeDefined()
+    expect(res.body.user.email).toBe(user.email)
+    expect(res.body.token).toBeDefined()
 
 })
 
@@ -95,7 +95,7 @@ test("POST -> 'URL_BASE/login', should return status code 401",async () => {
         .post(`${URL_BASE}/login`)
         .send(user)
 
-    expect(res.status).tobe(401)
+    expect(res.status).toBe(401)
 })
 
 
@@ -104,5 +104,5 @@ test("DELETE -> 'URL_BASE/:id', should return status code 204",async () => {
         .delete(`${URL_BASE}/${userId}`)
         .set(`Authorization`, `Bearer ${TOKEN}`)
 
-    expect(res.status).tobe(204)
+    expect(res.status).toBe(204)
 })
